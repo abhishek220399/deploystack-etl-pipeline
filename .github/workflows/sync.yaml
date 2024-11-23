@@ -1,7 +1,7 @@
 name: Sync Fork
 on:
   schedule:
-    - cron: '20 0 * * *'  # Runs daily
+    - cron: '0 15 * * *'  # Runs daily
   workflow_dispatch:
 jobs:
   sync:
@@ -14,7 +14,7 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "louisphilipshahim@gmail.com"
       - name: Add upstream
-        run: git remote add upstream https://github.com/<original-owner>/<original-repo>.git
+        run: git remote add upstream https://github.com/GoogleCloudPlatform/deploystack-etl-pipeline.git
       - name: Fetch upstream
         run: git fetch upstream
       - name: Rebase fork
